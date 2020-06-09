@@ -1,3 +1,3 @@
 library pip_quickstart;
 
-export './src/quickstart.dart';
+export './src/helloworld.dart';
