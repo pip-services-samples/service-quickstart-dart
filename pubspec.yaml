@@ -1,0 +1,18 @@
+name: pip_quickstart
+version: "1.0.0"
+author: Levichev Dmitry <levichev.dmitry@gmail.com>
+description: Quick start for Pip.Services toolkit on Dart
+homepage: http://pipservices.org
+
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
+dependencies:
+  pip_services3_commons: ">=1.0.5 <2.0.0"
+  pip_services3_components: ">=1.0.2 <2.0.0"
+  pip_services3_rpc: ">=1.0.2 <2.0.0"
+  pip_services3_container: ">=1.0.3 <2.0.0"
+  angel_framework: ^2.1.1
+
+dev_dependencies:
+  test: '>=1.14.2 <2.0.0'
