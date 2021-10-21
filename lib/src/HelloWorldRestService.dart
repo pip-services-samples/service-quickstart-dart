@@ -1,11 +1,10 @@
-import 'package:angel_framework/angel_framework.dart' as angel;
-
 import 'package:pip_services3_rpc/pip_services3_rpc.dart';
 import 'package:pip_services3_commons/pip_services3_commons.dart';
+import 'package:shelf/shelf.dart';
 import './HelloWorldController.dart';
 
 class HelloWorldRestService extends RestService {
-  HelloWorldController controller;
+  HelloWorldController? controller;
 
   HelloWorldRestService() : super() {
     baseRoute = '/hello_world';
@@ -22,10 +21,9 @@ class HelloWorldRestService extends RestService {
 
   @override
   void register() {
-    registerRoute('get', '/greeting', null,
-        (angel.RequestContext req, angel.ResponseContext res) async{
-      var name = req.queryParameters['name'];
-      sendResult(req, res, null, await controller.greeting(name));
+    registerRoute('get', '/greeting', null, (Request req) async {
+      var name = req.url.queryParameters['name'];
+      return sendResult(req, await controller!.greeting(name));
     });
   }
 }
